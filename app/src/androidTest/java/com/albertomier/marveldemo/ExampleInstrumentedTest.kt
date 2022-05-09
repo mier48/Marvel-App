@@ -1,4 +1,4 @@
-package com.albertomier.marvelapp
+package com.albertomier.marveldemo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

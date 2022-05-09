@@ -1,4 +1,4 @@
-package com.albertomier.marvelapp
+package com.albertomier.marveldemo
 
 import org.junit.Test
 
