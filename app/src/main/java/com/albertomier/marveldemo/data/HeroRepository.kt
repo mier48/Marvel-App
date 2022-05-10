@@ -18,14 +18,8 @@ class HeroRepository @Inject constructor(
         return response.map { it.toDomain() }
     }
 
-    suspend fun getHeroById(id: Int): Hero {
-        val response: List<HeroModel> = api.getHeroById(id)
-
-        return if (!response.isNullOrEmpty()) {
-            response[0].toDomain()
-        } else {
-            heroDao.getHeroById(id).toDomain()
-        }
+    suspend fun getHeroById(id: Int): List<Hero> {
+        return api.getHeroById(id).map { it.toDomain() }
     }
 
     suspend fun getHeroByIdFromDatabse(id: Int): Hero {

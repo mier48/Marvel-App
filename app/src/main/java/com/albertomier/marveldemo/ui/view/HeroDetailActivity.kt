@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.albertomier.marveldemo.R
 import com.albertomier.marveldemo.databinding.ActivityHeroDetailBinding
@@ -29,7 +30,7 @@ class HeroDetailActivity : AppCompatActivity() {
 
         val id: Int = intent.getIntExtra("_id", 0)
 
-        heroViewModel.onCreate(id)
+        heroViewModel.onCreate(id, applicationContext)
 
         heroViewModel.heroModel.observe(this, Observer { hero ->
             supportActionBar?.title = hero.name
@@ -60,6 +61,10 @@ class HeroDetailActivity : AppCompatActivity() {
             binding.addToFavorite.setOnClickListener {
                 addToFavorite(hero)
             }
+        })
+
+        heroViewModel.isLoading.observe(this, Observer {
+            binding.progress.isVisible = it
         })
     }
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -58,7 +59,7 @@ class HomeFragment : Fragment() {
         })
 
         heroesViewModel.isLoading.observe(viewLifecycleOwner, Observer {
-            //binding.progress.isVisible = it
+            binding.progress.isVisible = it
         })
 
         binding.heroesList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -84,6 +85,11 @@ class HomeFragment : Fragment() {
         })
 
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        heroesViewModel.onCreate(limit)
     }
 
     override fun onDestroyView() {

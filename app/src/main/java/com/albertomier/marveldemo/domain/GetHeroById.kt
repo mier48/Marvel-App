@@ -7,13 +7,18 @@ import javax.inject.Inject
 class GetHeroById @Inject constructor(private val repository: HeroRepository) {
 
     suspend operator fun invoke(id: Int): Hero {
-        val hero = repository.getHeroById(id)
-        val heroDatabase = repository.getHeroByIdFromDatabse(id)
+        val heroResponse = repository.getHeroById(id)
 
-        if (heroDatabase.id == id) {
-            hero.fav = heroDatabase.fav
+        return if (!heroResponse.isNullOrEmpty()) {
+            val hero = heroResponse[0]
+            val heroDatabase = repository.getHeroByIdFromDatabse(id)
+
+            if (heroDatabase.id == id) {
+                hero.fav = heroDatabase.fav
+            }
+            hero
+        } else {
+            repository.getHeroByIdFromDatabse(id)
         }
-
-        return hero
     }
 }

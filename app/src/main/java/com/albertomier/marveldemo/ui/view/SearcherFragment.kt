@@ -1,5 +1,6 @@
 package com.albertomier.marveldemo.ui.view
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.albertomier.marveldemo.core.Utils
 import com.albertomier.marveldemo.databinding.FragmentSearcherBinding
 import com.albertomier.marveldemo.domain.model.Hero
 import com.albertomier.marveldemo.ui.adapter.HeroAdapter
@@ -49,22 +51,39 @@ class SearcherFragment : Fragment() {
             binding.progress.isVisible = it
         })
 
-        binding.searcherEditText.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s != null && s.isNotEmpty()) {
-                    query = s.toString().lowercase()
-                    heroesSearcherViewModel.byName(query!!)
-                } else {
-                    heroesSearcherViewModel.empty()
+        if (Utils.isOnline()) {
+            binding.searcherEditText.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) {
                 }
+
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    if (s != null && s.isNotEmpty()) {
+                        query = s.toString().lowercase()
+                        heroesSearcherViewModel.byName(query!!)
+                    } else {
+                        heroesSearcherViewModel.empty()
+                    }
+                }
+            })
+        } else {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Información")
+            builder.setMessage("Debes estar conectado a internet para poder usar el buscador")
+
+            builder.setPositiveButton(android.R.string.ok) { _, _ ->
+
             }
-        })
+
+            builder.show()
+        }
 
         return root
     }
