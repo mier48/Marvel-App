@@ -15,4 +15,5 @@ data class HeroEntity(
     @ColumnInfo(name = "fav") var fav: Boolean
 )
 
-fun Hero.toDatabase() = HeroEntity(id = id, name = name, image = imagePath, description = description, fav = fav)
+fun Hero.toDatabase() =
+    HeroEntity(id = id, name = name, image = imagePath, description = description, fav = fav)

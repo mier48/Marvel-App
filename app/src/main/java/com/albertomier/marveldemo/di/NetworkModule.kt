@@ -1,7 +1,5 @@
 package com.albertomier.marveldemo.di
 
-import android.content.Context
-import com.albertomier.marveldemo.R
 import com.albertomier.marveldemo.data.network.HeroApiClient
 import dagger.Module
 import dagger.Provides

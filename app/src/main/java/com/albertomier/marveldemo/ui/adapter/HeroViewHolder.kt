@@ -13,7 +13,7 @@ class HeroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = HeroBinding.bind(view)
 
-    fun render(hero: Hero, onClickListener: (Hero) -> Unit,  addToFavoriteListener: (Hero) -> Unit) {
+    fun render(hero: Hero, onClickListener: (Hero) -> Unit, addToFavoriteListener: (Hero) -> Unit) {
         val context = binding.heroImage.context
 
         binding.heroName.text = hero.name

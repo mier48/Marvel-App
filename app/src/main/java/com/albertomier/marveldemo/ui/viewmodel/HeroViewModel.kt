@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.albertomier.marveldemo.domain.AddHeroToFavorite
 import com.albertomier.marveldemo.domain.GetHeroById
-import com.albertomier.marveldemo.domain.GetHeroes
 import com.albertomier.marveldemo.domain.RemoveHeroFromFavorite
 import com.albertomier.marveldemo.domain.model.Hero
 import dagger.hilt.android.lifecycle.HiltViewModel

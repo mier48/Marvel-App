@@ -1,7 +1,6 @@
 package com.albertomier.marveldemo.domain
 
 import com.albertomier.marveldemo.data.HeroRepository
-import com.albertomier.marveldemo.data.database.entities.toDatabase
 import com.albertomier.marveldemo.domain.model.Hero
 import javax.inject.Inject
 

@@ -3,7 +3,6 @@ package com.albertomier.marveldemo.domain
 import com.albertomier.marveldemo.data.HeroRepository
 import com.albertomier.marveldemo.data.database.entities.toDatabase
 import com.albertomier.marveldemo.domain.model.Hero
-import java.time.ZoneOffset
 import javax.inject.Inject
 
 class GetHeroes @Inject constructor(private val repository: HeroRepository) {
