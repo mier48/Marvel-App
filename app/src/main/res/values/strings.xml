@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">MarvelApp</string>
+    <string name="app_name">Marvel</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_searcher">Buscador</string>
+    <string name="title_favorites">Lista de Favoritos</string>
+    <string name="searcher_hint">Busca un héroe…</string>
 </resources>

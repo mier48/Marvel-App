@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <item android:drawable="@color/red_primary">
+
+    </item>
+
+    <item
+        android:bottom="250dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="250dp">
+        <bitmap android:src="@drawable/splash" />
+    </item>
+</layer-list>
